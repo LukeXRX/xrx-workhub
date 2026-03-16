@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
+import UserMenu from "@/components/layout/UserMenu";
 
 interface NavItem {
   id: string;
@@ -72,9 +73,7 @@ export default function ActivityBar({ activeView, onViewChange }: ActivityBarPro
       )}
 
       {/* 아바타 */}
-      <div className="w-[34px] h-[34px] rounded-full bg-accent text-black text-[13px] font-bold flex items-center justify-center mt-1.5">
-        L
-      </div>
+      <UserMenu />
     </div>
   );
 }

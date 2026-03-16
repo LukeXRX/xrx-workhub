@@ -1,12 +1,13 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { supabase } from "@/lib/supabase";
+import { createClient } from "@/lib/supabase";
 import type { Todo } from "@/types";
 
 export function useTodos(projectId: string | null) {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [loading, setLoading] = useState(true);
+  const supabase = createClient();
 
   const fetchTodos = useCallback(async () => {
     setLoading(true);

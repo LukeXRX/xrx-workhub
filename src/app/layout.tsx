@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Outfit, Noto_Sans_KR } from "next/font/google";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
+import { ToastProvider } from "@/components/common/Toast";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -34,7 +35,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <ToastProvider>{children}</ToastProvider>
         </ThemeProvider>
       </body>
     </html>

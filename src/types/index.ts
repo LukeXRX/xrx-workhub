@@ -5,32 +5,30 @@ export interface Profile {
   display_name: string;
   email: string;
   avatar_url: string | null;
-  google_tokens: GoogleTokens | null;
-  theme: "light" | "dark" | "system";
+  role: "owner" | "admin" | "member" | "viewer";
   created_at: string;
-}
-
-export interface GoogleTokens {
-  access_token: string;
-  refresh_token: string;
-  expiry: string;
+  updated_at: string;
 }
 
 export interface Project {
   id: string;
   name: string;
+  description: string | null;
   color: string;
   icon: string;
   drive_folder_id: string | null;
   owner_id: string;
   is_archived: boolean;
   created_at: string;
+  updated_at: string;
 }
 
 export interface ProjectMember {
+  id: string;
   project_id: string;
   user_id: string;
-  role: "owner" | "admin" | "member";
+  role: "owner" | "admin" | "member" | "viewer";
+  joined_at: string;
 }
 
 export type TodoCategory = "문서 작성" | "개발" | "이메일" | "자료 조사" | "디자인" | "출장" | "검토" | "기타";
@@ -55,11 +53,11 @@ export interface Todo {
   description: string | null;
   status: "pending" | "done";
   priority: "high" | "medium" | "low";
+  category: TodoCategory | null;
   due_date: string | null;
   gcal_event_id: string | null;
   drive_file_ids: string[] | null;
   completed_at: string | null;
-  category: TodoCategory | null;
   sort_order: number;
   created_at: string;
 }
@@ -83,4 +81,25 @@ export interface DriveFile {
   modifiedTime: string;
   size?: string;
   thumbnailLink?: string;
+}
+
+export interface ChatChannel {
+  id: string;
+  project_id: string;
+  name: string;
+  description: string | null;
+  is_direct: boolean;
+  created_by: string;
+  created_at: string;
+}
+
+export interface ChatMessage {
+  id: string;
+  channel_id: string;
+  user_id: string;
+  content: string;
+  thread_id: string | null;
+  is_edited: boolean;
+  created_at: string;
+  updated_at: string;
 }

@@ -1,26 +1,89 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
+/* ═══ XRX WorkHub Design System — Tailwind v4 @theme ═══ */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-accent: #FF9800;
+  --color-accent-soft: rgba(255,152,0,0.10);
+  --color-accent-20: rgba(255,152,0,0.20);
+  --color-accent-40: rgba(255,152,0,0.40);
+
+  --color-bg: var(--bg);
+  --color-bg-2: var(--bg2);
+  --color-bg-3: var(--bg3);
+  --color-tx: var(--tx);
+  --color-tx-2: var(--tx2);
+  --color-tx-3: var(--tx3);
+  --color-tx-4: var(--tx4);
+  --color-bd: var(--bd);
+  --color-bd-2: var(--bd2);
+  --color-card: var(--card);
+  --color-sidebar: var(--sidebar);
+  --color-actbar: var(--actbar);
+  --color-actbar-tx: var(--actbar-tx);
+  --color-actbar-active: var(--actbar-active);
+
+  --font-sans: "Outfit", "Noto Sans KR", sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ═══ Light Theme (기본) ═══ */
+:root {
+  --bg: #fff;
+  --bg2: #f7f7f7;
+  --bg3: #efefef;
+  --tx: #000;
+  --tx2: rgba(0,0,0,0.6);
+  --tx3: rgba(0,0,0,0.38);
+  --tx4: rgba(0,0,0,0.12);
+  --bd: rgba(0,0,0,0.10);
+  --bd2: rgba(0,0,0,0.06);
+  --card: #fff;
+  --sidebar: #f7f7f7;
+  --actbar: #1a1a1a;
+  --actbar-tx: rgba(255,255,255,0.45);
+  --actbar-active: #FF9800;
+  --transition: 0.3s cubic-bezier(0,0,0.36,1);
 }
 
+/* ═══ Dark Theme ═══ */
+.dark {
+  --bg: #0a0a0a;
+  --bg2: #111;
+  --bg3: #1a1a1a;
+  --tx: #fff;
+  --tx2: rgba(255,255,255,0.65);
+  --tx3: rgba(255,255,255,0.38);
+  --tx4: rgba(255,255,255,0.10);
+  --bd: rgba(255,255,255,0.10);
+  --bd2: rgba(255,255,255,0.05);
+  --card: #111;
+  --sidebar: #0f0f0f;
+  --actbar: #060606;
+  --actbar-tx: rgba(255,255,255,0.32);
+}
+
+/* ═══ Global Styles ═══ */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--tx2);
+  background: var(--bg);
+  line-height: 165%;
+  -webkit-font-smoothing: antialiased;
+  transition: background 0.3s, color 0.3s;
+}
+
+::selection {
+  color: #000;
+  background: rgba(255,152,0,0.20);
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #FF9800;
+  border-radius: 3px;
 }
